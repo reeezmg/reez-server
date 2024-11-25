@@ -59,7 +59,7 @@ router.post('/', authenticateToken, async (req, res) => {
   
       const mailOptions = {
         from: 'reez@gmail.com', // Your email address
-        to: 'reezmohdmg22@gmail.com', // Driver's email address
+        to: driver.email, // Driver's email address
         subject: '🚗 New Service Request Received!',
         html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">

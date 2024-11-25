@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   try {
     await transporter.sendMail({
       from: 'reez@gmail.com',
-      to: 'reezmohdmg22@gmail.com',
+      to: email,
       subject: 'Password Reset OTP',
       text: `Your OTP is: ${otp}`,
       html: `<p>Your OTP is: <strong>${otp}</strong></p>`,
