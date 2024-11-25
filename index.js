@@ -16,7 +16,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'https://reez-one.vercel.app',
-      'https://www.reez.uk'
+      'https://reez.uk/'
     ],    
     credentials: true,
   })
