@@ -32,7 +32,11 @@ router.post('/register', async (req, res) => {
 
     res.cookie('token', token, {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week in milliseconds
-    });
+      httpOnly: true,                 // Protect against XSS
+      secure: true,                   // Send cookie only over HTTPS
+      sameSite: 'None',               // Allow cross-site cookies
+      domain: 'reez-one.vercel.app',       // Replace with your actual domain if needed
+    })
     
 
 
@@ -67,7 +71,12 @@ router.post('/login', async (req, res) => {
     // Set token as HTTP-only cookie for 1 week
     res.cookie('token', token, {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week in milliseconds
-    });
+      httpOnly: true,                 // Protect against XSS
+      secure: true,                   // Send cookie only over HTTPS
+      sameSite: 'None',               // Allow cross-site cookies
+      domain: 'reez-one.vercel.app',       // Replace with your actual domain if needed
+    })
+    
 
     res.status(200).json({ message: 'Login successful' });
   } catch (error) {
