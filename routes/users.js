@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
       httpOnly: false,                   // Protect against XSS
       secure: true,                     // Ensure cookie is sent over HTTPS only
       sameSite: 'None',                 // Allow cross-site cookies
-      domain: '.reez.uk',               // Share cookie across subdomains of reez.uk
+            // Share cookie across subdomains of reez.uk
     });
     
 
