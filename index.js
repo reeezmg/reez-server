@@ -15,7 +15,8 @@ app.use(
   cors({
     origin: [
       'http://localhost:3000',
-      'https://reez-one.vercel.app'
+      'https://reez-one.vercel.app',
+      'https://reez.uk/'
     ],    
     credentials: true,
   })
