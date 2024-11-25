@@ -71,10 +71,7 @@ router.post('/login', async (req, res) => {
     // Set token as HTTP-only cookie for 1 week
     res.cookie('token', token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,  // 1 week in milliseconds
-      httpOnly: true,                   // Protect against XSS
-      secure: true,                     // Ensure cookie is sent over HTTPS only
-      sameSite: 'None',                 // Allow cross-site cookies
-      domain: '.reez.uk',               // Share cookie across subdomains of reez.uk
+                 // Share cookie across subdomains of reez.uk
     });
     
 
