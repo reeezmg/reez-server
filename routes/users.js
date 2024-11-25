@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
       httpOnly: true,                 // Protect against XSS
       secure: true,                   // Send cookie only over HTTPS
       sameSite: 'None',               // Allow cross-site cookies
-      domain: 'reez-one.vercel.app',       // Replace with your actual domain if needed
+       // Replace with your actual domain if needed
     })
     
 
@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
       httpOnly: true,                 // Protect against XSS
       secure: true,                   // Send cookie only over HTTPS
       sameSite: 'None',               // Allow cross-site cookies
-      domain: 'reez-one.vercel.app',       // Replace with your actual domain if needed
+       // Replace with your actual domain if needed
     })
     
 
