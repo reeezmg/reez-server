@@ -59,17 +59,31 @@ router.post('/', authenticateToken, async (req, res) => {
   
       const mailOptions = {
         from: 'reez@gmail.com', // Your email address
-        to: 'reezmohdmg22@gmail.com',             // Driver's email address
-        subject: 'New Request for Your Service',
-        text: `
-        You have a new request from passenger ${passenger.name} for the following days: ${days.join(', ')}.
-        
-        Please review the request and respond accordingly.
-        
-        Contact details:
-        ${passenger.phone ? `Phone: ${passenger.phone}\n` : ''}Email: ${passenger.email}
+        to: 'reezmohdmg22@gmail.com', // Driver's email address
+        subject: '🚗 New Service Request Received!',
+        html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <h2 style="color: #4CAF50;">New Request for Your Service</h2>
+          <p>Dear Driver,</p>
+          <p>You have received a new service request from <strong>${passenger.name}</strong>. Please find the details below:</p>
+          <hr style="border: none; border-top: 1px solid #ccc;">
+          <h3 style="color: #333;">Request Details:</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li><strong>Requested Days:</strong> ${days.join(', ')}</li>
+          </ul>
+          <hr style="border: none; border-top: 1px solid #ccc;">
+          <h3 style="color: #333;">Passenger Contact:</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            ${passenger.phone ? `<li><strong>Phone:</strong> ${passenger.phone}</li>` : ''}
+            <li><strong>Email:</strong> ${passenger.email}</li>
+          </ul>
+          <hr style="border: none; border-top: 1px solid #ccc;">
+          <p>Please review the request and respond promptly.</p>
+          <p style="color: #666;">Best regards,<br>Your Reez Team</p>
+        </div>
         `
       };
+      
   
       // Send email
       transporter.sendMail(mailOptions, (error, info) => {
